@@ -18,31 +18,25 @@ int main() {
 			parcelas[i][j].estadoParcela=64;
 		}
 	}
-
 */
+Parcela **parcelas=new Parcela *[4];
+estadoJugador *jugador=new estadoJugador;
 
+semillas *tipoA=new semillas;
+semillas *tipoB=new semillas;
+semillas *tipoC=new semillas;
+valoresIniciales(jugador, tipoA,tipoB,tipoC);
+mostrarTablero(parcelas, jugador);
 
-
-	Parcela **parcelas=new Parcela *[4];
-    estadoJugador *jugador=new estadoJugador;
-
-    semillas *tipoA=new semillas;
-    semillas *tipoB=new semillas;
-    semillas *tipoC=new semillas;
-    valoresIniciales(jugador, tipoA,tipoB,tipoC);
-	mostrarTablero(parcelas, jugador);
-
-
-
-    crearTablero(parcelas);
-	tirarDados(jugador);
-	bool seguirJuego=true;
+crearTablero(parcelas);
+tirarDados(jugador);
+bool seguirJuego=true;
 while(seguirJuego==true){
 	seguirJuego=menu(parcelas, jugador, tipoA, tipoB, tipoC);
 }
 cout<<"Saliendo del juego"<<endl;
 
- //borrarHeap(tipoA, tipoB,tipoC,jugador, parcelas);
+borrarHeap(tipoA, tipoB,tipoC,jugador, parcelas);
 
 	return 0;
 }
